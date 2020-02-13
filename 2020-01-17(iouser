@@ -1,0 +1,37 @@
+-- mysql에서는 사용자 등록할때 접속경로를 설정
+-- iouser는 localhost에서만 접속할 수 있다.
+create user 'iouser'@'localhost' identified by '1234';
+grant all privileges on *.* to 'iouser'@'localhost';
+
+-- iouser는 모든 곳에서 원격, 로걸로 접속할수 있다.
+create user 'iouser'@'%' identified by '1234';
+grant all privileges on *.* to 'iouser'@'%';
+
+-- IP 대역이 192.168.*.*에서만 접속 허가
+    create user 'iouser'@'192.168.%' identified by '1234';
+    grant all privileges on *.* to 'iouser'@'192.168.%';
+    
+
+-- 2020-010-21
+-- 새로운 사용자 등록하고 권한 부여
+create user 'ems'@'localhost' identified by 'ems';
+grant all privileges on *.* to 'ems'@'localhost';
+
+-- ems는 모든 곳에서 원격, 로걸로 접속할수 있다.
+create user 'ems'@'%' identified by 'ems';
+grant all privileges on *.* to 'ems'@'%';
+
+-- schema DB 생성
+create database emsDB;
+use emsDB;
+show tables;
+
+-- 2020-02-07
+-- 새로운 사용자 등록하고 권한 부여 
+create user 'friend'@'localhost' identified by 'friend';
+grant all privileges on *.* to 'friend'@'localhost';
+
+-- schema DB 생성
+create database friendDB;
+use friendDB;
+show tables;
