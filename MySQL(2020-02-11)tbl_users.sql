@@ -24,3 +24,11 @@ delete from users where username = 'freeswoo';
 delete from authorities where seq = 2;
 delete from authorities where seq = 3;
 delete from authorities where seq = 5;
+
+
+use emsdb;
+desc tbl_product;
+select * from tbl_product;
+
+select * from tbl_boards;
+drop table tbl_boards;
