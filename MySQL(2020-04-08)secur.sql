@@ -17,10 +17,13 @@ create table users (
     enabled boolean
 );
 
+-- 2020-04-10
+-- tbl_users 테이블 변경
+-- user_name 에 unique 설정
 drop table tbl_users;
 create table tbl_users (
 	id bigint primary key auto_increment,
-	user_name varchar(50),
+	user_name varchar(50) unique,
     user_pass varchar(125),
     enabled boolean
 );
@@ -30,3 +33,6 @@ create table authorities(
     username varchar(50),
     authority varchar(50)
 );
+
+SELECT * FROM secur.tbl_users;
+commit;
