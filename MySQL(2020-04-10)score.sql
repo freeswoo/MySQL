@@ -89,11 +89,17 @@ SELECT s_num,
 	SUM(CASE WHEN s_subject ='국사' 
 		THEN s_score 
         ELSE 0 
-        END) AS 국사
+        END) AS 국사,
+	SUM(s_score) AS 총점,
+    AVG(s_score) AS 평균
 FROM tbl_score
-GROUP BY s_num ;
+	LEFT JOIN tbl_student 
+		ON tbl_student.st_num = tbl_score.s_num
+GROUP BY s_num,st_name ;
 
 SELECT * FROM TBL_SCORE;
+
+SELECT * FROM TBL_STUDENT;
 
 
 
